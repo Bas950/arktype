@@ -310,6 +310,11 @@ tags[2] must be a string (was object)`)
 			attest(uppercase("foo")).equals("FOO")
 			attest(uppercase(5).toString()).snap("must be a string (was number)")
 		})
+		it("normalize", () => {
+			const normalize = type("format.nfkc")
+			attest(normalize("𝙬𝙝𝙤 𝙖𝙢 𝙄")).equals("who am I")
+			attest(normalize(5).toString()).snap("must be a string (was number)")
+		})
 	})
 
 	describe("generics", () => {
